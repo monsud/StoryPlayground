@@ -46,42 +46,23 @@ import PlaygroundSupport
         animation.duration = 0.08
         animation.repeatCount = 4
         animation.autoreverses = true
-        animation.fromValue = NSValue(cgPoint: CGPoint(x: mDragoneView.center.x - 10, y: mDragoneView.center.y))
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: mDragoneView.center.x - 10, y:mDragoneView.center.y))
         animation.toValue = NSValue(cgPoint: CGPoint(x: mDragoneView.center.x + 10, y: mDragoneView.center.y))
         mDragoneView.layer.add(animation, forKey: "position")
         
-        UIView.animate(withDuration: 1.6) {
-            fireView.transform = CGAffineTransform (translationX: -320, y: 320)
-        }
+        UIView.animate(withDuration: 4.0, delay:0.5, options:[.repeat], animations:{
+            dinospView.transform = CGAffineTransform (translationX: -320, y: 520)
+        })
         
-        UIView.animate(withDuration: 3.5) {
-            dinospView.transform = CGAffineTransform (translationX: -320, y: 320)
-        }
+        UIView.animate(withDuration: 1.0, delay:1.5, options:[.repeat], animations:{
+                fireView.transform = CGAffineTransform (translationX: -300, y: 520)
+        })
         
-        UIView.animate(withDuration: 0.8) {
-            dinoView2.transform = CGAffineTransform (translationX: 0, y: -105)
-        }
+    
         
-        let secondsToDelay = 0.8
-        DispatchQueue.main.asyncAfter(deadline: .now() + secondsToDelay) {
-           UIView.animate(withDuration: 0.8) {
-               dinoView2.transform = CGAffineTransform (translationX: 0, y: 35)
-           }
-        }
-        
-        
-        /*
-        let secondsToDelay2 = 0.8
-               DispatchQueue.main.asyncAfter(deadline: .now() + secondsToDelay2) {
-                  UIView.animate(withDuration: 0.8){
-                      dinospView.transform = CGAffineTransform ( translationX: 0, y: 150)
-                  }
-               }
-        
-        UIView.animate(withDuration: 0.8) {
-            dinospView.transform = CGAffineTransform (translationX: 0, y: -110)
-        }
-        */
+        UIView.animate(withDuration: 1.0, delay:0.5, options:[.repeat, .autoreverse], animations:{
+            dinoView2.transform = CGAffineTransform (translationX: 0, y: -100)
+        })
         
         myView.addSubview(worldMainView)
         myView.addSubview(dinoView)

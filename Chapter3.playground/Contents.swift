@@ -6,11 +6,14 @@ import PlaygroundSupport
     var sfondo : UIImage!
     var haze: UIImage!
     var raptor:UIImage!
+    var blueFlame:UIImage!
 
    
 
     override func loadView() {
         let myView = UIView()
+        
+        raptor = UIImage(named: "revertedRaptor.png")
        
         let sfondoMainView = UIImageView()
         sfondoMainView.frame = CGRect(x: -700, y: 0, width: 1100, height: 700)
@@ -19,27 +22,38 @@ import PlaygroundSupport
         myView.addSubview(sfondoMainView)
         
         
-        let raptorView = UIImageView()
-        raptorView.frame = CGRect(x: -10, y:500 , width:220, height: 160)
-        raptor = UIImage(named: "revertedRaptor.png")
-        raptorView.image = raptor
-        myView.addSubview(raptorView)
+        let raptorView1 = UIImageView()
+        raptorView1.frame = CGRect(x: 120, y:480 , width:150, height: 130)
+        raptorView1.image = raptor
+        myView.addSubview(raptorView1)
+        
+        let raptorView2 = UIImageView()
+        raptorView2.frame = CGRect(x: 110, y:350 , width:150, height: 130)
+        raptorView2.image = raptor
+        myView.addSubview(raptorView2)
+        
+        let raptorView3 = UIImageView()
+        raptorView3.frame = CGRect(x: 0, y:540 , width:150, height: 130)
+        raptorView3.image = raptor
+        myView.addSubview(raptorView3)
     
         
         
         // ----> Haze
         let hazeView = UIImageView()
-        hazeView.frame = CGRect(x: 240, y: 200, width: 100, height: 80)
+        hazeView.frame = CGRect(x: 240, y: 250, width: 100, height: 80)
         haze = UIImage(named: "haze.png")
         hazeView.image = haze
         myView.addSubview(hazeView)
         
-        UIView.animate(withDuration: 0.8) {
-            raptorView.transform = CGAffineTransform(translationX: -300, y: 0)
-            UIView.animate(withDuration: 0.8){
-                hazeView.transform = CGAffineTransform(translationX: 0, y: 360)
-            }
-        }
+        let blueFlameView = UIImageView()
+        blueFlameView.frame = CGRect(x:-10, y:280, width: 250, height: 350)
+        blueFlame = UIImage(named: "bluflame.png")
+        blueFlameView.image = blueFlame
+        myView.addSubview(blueFlameView)
+        
+        
+    
         // ------
         
         
