@@ -14,11 +14,13 @@ import PlaygroundSupport
     override func loadView() {
         let myView = UIView()
         
+        //Declaration of a View for the world background
         let worldMainView = UIImageView()
         worldMainView.frame = CGRect(x: 0, y: 0, width: 800, height: 800)
         world = UIImage(named: "world.jpg")
         worldMainView.image = world
         
+        //Declration of more dino for each View
         let dinoView = UIImageView()
         dinoView.frame = CGRect(x: 325, y: 450, width: 80, height: 80)
         dino = UIImage(named: "dino.png")
@@ -39,6 +41,7 @@ import PlaygroundSupport
         ptero = UIImage(named: "pterodattilo.png")
         pteroView3.image = ptero
         
+        //Declaration of a View for the dragon MonDragone
         let mDragoneView = UIImageView()
         mDragoneView.frame = CGRect(x: 130, y: 80, width: 250, height: 250)
         mDragone = UIImage(named: "mDragone.png")
@@ -59,11 +62,13 @@ import PlaygroundSupport
         dinosp = UIImage (named: "dinosp.png")
         dinospView.image = dinosp
         
+        //Declaration for the Mondragone's fire
         let fireView = UIImageView()
         fireView.frame = CGRect(x: 190, y: 245, width: 200, height: 200)
         fire = UIImage (named: "fire.png")
         fireView.image = fire
         
+        //Animations
         let animation1 = CABasicAnimation(keyPath: "position")
         animation1.duration = 0.08
         animation1.repeatCount = 4
@@ -91,7 +96,7 @@ import PlaygroundSupport
         myView.addSubview(pteroView2)
         myView.addSubview(pteroView3)
         
-        
+        //This animations are used for the defeat of the dino with flame
         UIView.animate(withDuration: 1.12, animations:{
             fireView.transform = CGAffineTransform (translationX: -300, y: 400)
         })

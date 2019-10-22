@@ -16,13 +16,14 @@ import AVFoundation
         
         raptor = UIImage(named: "RevertedRaptor.png")
        
+        //Declaration of a View for the world background
         let sfondoMainView = UIImageView()
         sfondoMainView.frame = CGRect(x: -700, y: 0, width: 1100, height: 700)
         sfondo = UIImage(named: "world.jpg")
         sfondoMainView.image = sfondo
         myView.addSubview(sfondoMainView)
         
-        
+        //Declaration of many dinos
         let raptorView1 = UIImageView()
         raptorView1.frame = CGRect(x: 120, y:480 , width:150, height: 130)
         raptorView1.image = raptor
@@ -44,14 +45,14 @@ import AVFoundation
         pteroView.image = ptero
         myView.addSubview(pteroView)
         
-        // ----> Haze
+        //Declaration of a View for the dragon Haze
         let hazeView = UIImageView()
         hazeView.frame = CGRect(x: 240, y: 250, width: 100, height: 80)
         haze = UIImage(named: "haze.png")
         hazeView.image = haze
         myView.addSubview(hazeView)
         
-        
+        //Declaration of a View for the special flame
         let blueFlameView = UIImageView()
         blueFlameView.frame = CGRect(x:30, y:280, width: 220, height: 350)
         blueFlame = UIImage(named: "bluflame.png")
@@ -59,8 +60,7 @@ import AVFoundation
         blueFlameView.image = blueFlame
         myView.addSubview(blueFlameView)
         
-        // ------
-        
+        //Animations
         let animation1 = CABasicAnimation(keyPath: "position")
         animation1.duration = 0.08
         animation1.repeatCount = 20
@@ -77,10 +77,7 @@ import AVFoundation
         self.view = myView
     }
 }
-
-
-
-    
+    //Audio for animations
     let viewController = ViewController()
     var audioPlayer:AVAudioPlayer!
     PlaygroundPage.current.liveView = viewController

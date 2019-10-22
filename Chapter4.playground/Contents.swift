@@ -14,29 +14,28 @@ import PlaygroundSupport
         
         sleep = UIImage(named: "Z.png")
         
-        
+        //Declaration of a View for the world background
         let sfondoMainView = UIImageView()
         sfondoMainView.frame = CGRect(x: 0, y: 0, width: 1100, height: 700)
         sfondo = UIImage(named: "background.jpg")
         sfondoMainView.image = sfondo
         myView.addSubview(sfondoMainView)
   
-        //----> Nest
-        
+        //Declaration of a View for the nest
         let nestView = UIImageView()
         nestView.frame = CGRect(x: 180, y: 530, width: 100, height: 80)
         nest = UIImage(named: "nest.png")
         nestView.image = nest
         myView.addSubview(nestView)
  
-        // ----> Haze
+        //Declaration of a View for the dragon Haze
         let hazeView = UIImageView()
         hazeView.frame = CGRect(x: 190, y: 486, width: 100, height: 80)
         haze = UIImage(named: "hazesl.png")
         hazeView.image = haze
         myView.addSubview(hazeView)
-        // ------
         
+        //Declaration for the Z letter for three times
         let sleepView1 = UIImageView()
         sleepView1.frame = CGRect(x: 190, y: 410, width: 30, height: 30)
         sleepView1.image = sleep
