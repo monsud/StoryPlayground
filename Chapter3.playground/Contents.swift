@@ -8,6 +8,7 @@ import AVFoundation
     var haze: UIImage!
     var raptor:UIImage!
     var blueFlame:UIImage!
+    var ptero:UIImage!
     
 
     override func loadView() {
@@ -37,7 +38,11 @@ import AVFoundation
         raptorView3.image = raptor
         myView.addSubview(raptorView3)
     
-        
+        let pteroView = UIImageView()
+        pteroView.frame = CGRect(x: 40, y:260 , width:200, height: 120)
+        ptero = UIImage(named: "pterodattilo.png")
+        pteroView.image = ptero
+        myView.addSubview(pteroView)
         
         // ----> Haze
         let hazeView = UIImageView()

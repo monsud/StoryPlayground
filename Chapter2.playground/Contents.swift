@@ -59,9 +59,8 @@ import PlaygroundSupport
         dinosp = UIImage (named: "dinosp.png")
         dinospView.image = dinosp
         
-        
         let fireView = UIImageView()
-        fireView.frame = CGRect(x: 190, y: 245, width: 140, height: 140)
+        fireView.frame = CGRect(x: 190, y: 245, width: 200, height: 200)
         fire = UIImage (named: "fire.png")
         fireView.image = fire
         
@@ -73,15 +72,13 @@ import PlaygroundSupport
         animation1.toValue = NSValue(cgPoint: CGPoint(x: mDragoneView.center.x + 10, y: mDragoneView.center.y))
         mDragoneView.layer.add(animation1, forKey: "position")
         
-        
-        
-        UIView.animate(withDuration: 4.0, delay:0.5, options:[.repeat], animations:{
-            dinospView.transform = CGAffineTransform (translationX: -320, y: 520)
-        })
-        
-        UIView.animate(withDuration: 1.0, delay:1.5, options:[.repeat], animations:{
-                fireView.transform = CGAffineTransform (translationX: -300, y: 520)
-        })
+        let animation2 = CABasicAnimation(keyPath: "position")
+        animation2.duration = 0.1
+        animation2.repeatCount = 12
+        animation2.autoreverses = true
+        animation2.fromValue = NSValue(cgPoint: CGPoint(x: pteroRevView.center.x - 6, y: pteroRevView.center.y + 6))
+        animation2.toValue = NSValue(cgPoint: CGPoint(x: pteroRevView.center.x + 6, y: pteroRevView.center.y - 6))
+        pteroRevView.layer.add(animation2, forKey: "position")
         
         myView.addSubview(worldMainView)
         myView.addSubview(dinoView)
@@ -93,6 +90,15 @@ import PlaygroundSupport
         myView.addSubview(pteroView1)
         myView.addSubview(pteroView2)
         myView.addSubview(pteroView3)
+        
+        
+        UIView.animate(withDuration: 1.12, animations:{
+            fireView.transform = CGAffineTransform (translationX: -300, y: 400)
+        })
+        
+        UIView.animate(withDuration: 2.5, animations:{
+            dinospView.transform = CGAffineTransform (translationX: -280, y: 320)
+        })
         
         self.view = myView
     }
