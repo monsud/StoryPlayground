@@ -1,5 +1,6 @@
 import UIKit
 import PlaygroundSupport
+import AVFoundation
 
  class ViewController : UIViewController {
     var sfondoMainView : UIImageView!
@@ -7,13 +8,12 @@ import PlaygroundSupport
     var haze: UIImage!
     var raptor:UIImage!
     var blueFlame:UIImage!
-
-   
+    
 
     override func loadView() {
         let myView = UIView()
         
-        raptor = UIImage(named: "revertedRaptor.png")
+        raptor = UIImage(named: "RevertedRaptor.png")
        
         let sfondoMainView = UIImageView()
         sfondoMainView.frame = CGRect(x: -700, y: 0, width: 1100, height: 700)
@@ -46,16 +46,27 @@ import PlaygroundSupport
         hazeView.image = haze
         myView.addSubview(hazeView)
         
+        
         let blueFlameView = UIImageView()
-        blueFlameView.frame = CGRect(x:-10, y:280, width: 250, height: 350)
+        blueFlameView.frame = CGRect(x:30, y:280, width: 220, height: 350)
         blueFlame = UIImage(named: "bluflame.png")
+        blueFlameView.alpha=0.0
         blueFlameView.image = blueFlame
         myView.addSubview(blueFlameView)
         
-        
-    
         // ------
         
+        let animation1 = CABasicAnimation(keyPath: "position")
+        animation1.duration = 0.08
+        animation1.repeatCount = 20
+        animation1.autoreverses = true
+        animation1.fromValue = NSValue(cgPoint: CGPoint(x: hazeView.center.x - 10, y: hazeView.center.y))
+        animation1.toValue = NSValue(cgPoint: CGPoint(x: hazeView.center.x + 10, y: hazeView.center.y))
+        hazeView.layer.add(animation1, forKey: "position")
+        
+        UIView.animate(withDuration: 1.2, animations:  {
+            blueFlameView.alpha=1.0
+        })
         
     
         self.view = myView
@@ -64,8 +75,16 @@ import PlaygroundSupport
 
 
 
+    
     let viewController = ViewController()
+    var audioPlayer:AVAudioPlayer!
     PlaygroundPage.current.liveView = viewController
+    sleep(1)
+    let path = Bundle.main.path(forResource: "Hazeflame.mp3", ofType:nil)!
+    let url = URL(fileURLWithPath: path)
+    
+    do{
+        audioPlayer =  try AVAudioPlayer(contentsOf: url)
+        audioPlayer?.play()
+    }catch{}
     PlaygroundPage.current.needsIndefiniteExecution = true
-
-

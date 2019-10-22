@@ -8,6 +8,7 @@ import AVFoundation
     var haze: UIImage!
     var monDragone : UIImage!
     var audioPlayer : AVAudioPlayer?
+    var audioPlayer2: AVAudioPlayer?
 
     override func loadView() {
         let myView = UIView()
@@ -28,17 +29,17 @@ import AVFoundation
         monDragoneView.image = monDragone
         
         let animation = CABasicAnimation(keyPath: "position")
-        animation.duration = 0.09
-        animation.repeatCount = 8
+        animation.duration = 0.08
+        animation.repeatCount = 20
         animation.autoreverses = true
         animation.fromValue = NSValue(cgPoint: CGPoint(x: monDragoneView.center.x - 10, y: monDragoneView.center.y))
         animation.toValue = NSValue(cgPoint: CGPoint(x: monDragoneView.center.x + 10, y: monDragoneView.center.y))
         monDragoneView.layer.add(animation, forKey: "position")
         
         let anim = CABasicAnimation(keyPath: "position")
-        let myDelay = 0.8
+        let myDelay = 3.3
         anim.duration = 0.08
-        anim.repeatCount = 4
+        anim.repeatCount = 12
         anim.autoreverses = true
         anim.fromValue = NSValue(cgPoint: CGPoint(x: hazeView.center.x - 10, y: hazeView.center.y))
         anim.toValue = NSValue(cgPoint: CGPoint(x: hazeView.center.x + 10, y: hazeView.center.y))
@@ -50,23 +51,22 @@ import AVFoundation
         myView.addSubview(monDragoneView)
         self.view = myView
         
-        let path = Bundle.main.path(forResource: "Dragon2.mp3", ofType:nil)!
+        let path = Bundle.main.path(forResource: "MonHaze.m4a", ofType:nil)!
         let url = URL(fileURLWithPath: path)
-
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
+        
+        do{
+            audioPlayer =  try AVAudioPlayer(contentsOf: url)
             audioPlayer?.play()
-        } catch {
-            
-        }
+        }catch{}
     }
-    
 }
 
 let viewController = ViewController()
 
 PlaygroundPage.current.liveView = viewController
 PlaygroundPage.current.needsIndefiniteExecution = true
+
+
 
 
 

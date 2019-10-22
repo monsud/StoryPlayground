@@ -8,6 +8,8 @@ import PlaygroundSupport
     var dinosp: UIImage!
     var mDragone : UIImage!
     var fire : UIImage!
+    var ptero:UIImage!
+    var pterorev:UIImage!
 
     override func loadView() {
         let myView = UIView()
@@ -22,8 +24,33 @@ import PlaygroundSupport
         dino = UIImage(named: "dino.png")
         dinoView.image = dino
         
+        let pteroView1 = UIImageView()
+        pteroView1.frame = CGRect(x: -20, y:70 , width: 150, height: 90)
+        ptero = UIImage(named: "pterodattilo.png")
+        pteroView1.image = ptero
+        
+        let pteroView2 = UIImageView()
+        pteroView2.frame = CGRect(x: 50, y:40 , width: 90, height:60)
+        ptero = UIImage(named: "pterodattilo.png")
+        pteroView2.image = ptero
+        
+        let pteroView3 = UIImageView()
+        pteroView3.frame = CGRect(x: -70, y:0 , width: 130, height: 70)
+        ptero = UIImage(named: "pterodattilo.png")
+        pteroView3.image = ptero
+        
+        let mDragoneView = UIImageView()
+        mDragoneView.frame = CGRect(x: 130, y: 80, width: 250, height: 250)
+        mDragone = UIImage(named: "mDragone.png")
+        mDragoneView.image = mDragone
+        
+        let pteroRevView = UIImageView()
+        pteroRevView.frame = CGRect(x: 260, y:-60 , width: 310, height: 230)
+        pterorev = UIImage(named: "pteroCapov.png")
+        pteroRevView.image = pterorev
+        
         let dinoView2 = UIImageView()
-        dinoView2.frame = CGRect(x: 200, y: 530, width: 120, height: 90)
+        dinoView2.frame = CGRect(x: 200, y: 530, width: 200, height: 150)
         dino = UIImage(named: "dino.png")
         dinoView2.image = dino
         
@@ -32,23 +59,21 @@ import PlaygroundSupport
         dinosp = UIImage (named: "dinosp.png")
         dinospView.image = dinosp
         
-        let mDragoneView = UIImageView()
-        mDragoneView.frame = CGRect(x: 130, y: 80, width: 250, height: 250)
-        mDragone = UIImage(named: "mDragone.png")
-        mDragoneView.image = mDragone
         
         let fireView = UIImageView()
         fireView.frame = CGRect(x: 190, y: 245, width: 140, height: 140)
         fire = UIImage (named: "fire.png")
         fireView.image = fire
         
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.duration = 0.08
-        animation.repeatCount = 4
-        animation.autoreverses = true
-        animation.fromValue = NSValue(cgPoint: CGPoint(x: mDragoneView.center.x - 10, y:mDragoneView.center.y))
-        animation.toValue = NSValue(cgPoint: CGPoint(x: mDragoneView.center.x + 10, y: mDragoneView.center.y))
-        mDragoneView.layer.add(animation, forKey: "position")
+        let animation1 = CABasicAnimation(keyPath: "position")
+        animation1.duration = 0.08
+        animation1.repeatCount = 4
+        animation1.autoreverses = true
+        animation1.fromValue = NSValue(cgPoint: CGPoint(x: mDragoneView.center.x - 10, y: mDragoneView.center.y))
+        animation1.toValue = NSValue(cgPoint: CGPoint(x: mDragoneView.center.x + 10, y: mDragoneView.center.y))
+        mDragoneView.layer.add(animation1, forKey: "position")
+        
+        
         
         UIView.animate(withDuration: 4.0, delay:0.5, options:[.repeat], animations:{
             dinospView.transform = CGAffineTransform (translationX: -320, y: 520)
@@ -58,18 +83,17 @@ import PlaygroundSupport
                 fireView.transform = CGAffineTransform (translationX: -300, y: 520)
         })
         
-    
-        
-        UIView.animate(withDuration: 1.0, delay:0.5, options:[.repeat, .autoreverse], animations:{
-            dinoView2.transform = CGAffineTransform (translationX: 0, y: -100)
-        })
-        
         myView.addSubview(worldMainView)
         myView.addSubview(dinoView)
         myView.addSubview(dinoView2)
         myView.addSubview(dinospView)
+        myView.addSubview(pteroRevView)
         myView.addSubview(mDragoneView)
         myView.addSubview(fireView)
+        myView.addSubview(pteroView1)
+        myView.addSubview(pteroView2)
+        myView.addSubview(pteroView3)
+        
         self.view = myView
     }
 }
